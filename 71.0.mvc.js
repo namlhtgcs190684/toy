@@ -26,7 +26,9 @@ var atob = require('atob');
 /// ------------------ CONFIG
 var configHeader = require("./configs/config_Header");
 var configDB = require("./configs/config_DB");
-const PORT = 8081;
+const express = require("express")
+const app = express();
+const PORT = 8080;
 var urldb = configDB.localdb.urldb;
 
 
@@ -370,7 +372,9 @@ function qrPage(req, res) {
 }
 
 /// ------------------ gọi SERVER thực thi
-
+app.listen( PORT, 
+    () => { console.log('Server RUNNING - %d ', PORT); }
+    );
 
 var server = app.listen( PORT , function () {
    var host = server.address().address
